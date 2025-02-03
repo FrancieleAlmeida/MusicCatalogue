@@ -10,7 +10,7 @@ const api = axios.create({
 
 export const searchTracks = async (query: string) => {
   const response = await api.get(`/search?q=${query}`);
-  return response.data.data; // Retorna apenas a lista de músicas
+  return response.data.data;
 };
 
 export const getArtist = async (id: string) => {
@@ -22,6 +22,12 @@ export const getPlaylist = async (id: string) => {
   const response = await api.get(`/playlist/${id}`);
   return response.data;
 };
+
+export const getAlbum = async (id: string) => {
+  const response = await api.get(`/album/${id}`);
+  return response.data;
+};
+
 
 
 export default api;

@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import axios from 'axios';
+import { getArtist } from '../services/api';
 
 const ArtistDetails: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -8,22 +8,20 @@ const ArtistDetails: React.FC = () => {
 
   useEffect(() => {
     const fetchArtistDetails = async () => {
+      if (!id) {
+        console.error('ID do artista não encontrado.');
+        return;
+      }
+
       try {
-        const response = await axios.get(`https://deezerdevs-deezer.p.rapidapi.com/artist/${id}`, {
-          headers: {
-            'x-rapidapi-key': '6bcdf6606bmshd11d9521448bceap1d5b11jsn5a6ca7186c9e',
-            'x-rapidapi-host': 'deezerdevs-deezer.p.rapidapi.com'
-          }
-        });
-        setArtist(response.data);
+        const artistData = await getArtist(id);
+        setArtist(artistData);
       } catch (error) {
         console.error('Erro ao carregar detalhes do artista:', error);
       }
     };
 
-    if (id) {
-      fetchArtistDetails();
-    }
+    fetchArtistDetails();
   }, [id]);
 
   if (!artist) return <p>Carregando...</p>;

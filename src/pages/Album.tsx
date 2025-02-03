@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import axios from "axios";
+import { useParams } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { getAlbum } from '../services/api';
 
 interface Track {
   id: number;
@@ -29,16 +29,17 @@ const AlbumPage = () => {
 
   useEffect(() => {
     const fetchAlbum = async () => {
+      if (!id) {
+        console.error('ID do álbum não encontrado.');
+        setLoading(false);
+        return;
+      }
+
       try {
-        const response = await axios.get(`https://deezerdevs-deezer.p.rapidapi.com/album/${id}`, {
-          headers: {
-            "x-rapidapi-key": "6bcdf6606bmshd11d9521448bceap1d5b11jsn5a6ca7186c9e",
-            "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
-          },
-        });
-        setAlbum(response.data);
+        const albumData = await getAlbum(id);
+        setAlbum(albumData);
       } catch (error) {
-        console.error("Erro ao carregar o álbum", error);
+        console.error('Erro ao carregar o álbum', error);
       } finally {
         setLoading(false);
       }

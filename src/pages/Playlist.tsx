@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import axios from 'axios';
+import { getPlaylist } from '../services/api';
 
 const Playlist: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -8,22 +8,20 @@ const Playlist: React.FC = () => {
 
   useEffect(() => {
     const fetchPlaylistDetails = async () => {
+      if (!id) {
+        console.error('ID da playlist não encontrado.');
+        return;
+      }
+
       try {
-        const response = await axios.get(`https://deezerdevs-deezer.p.rapidapi.com/playlist/${id}`, {
-          headers: {
-            'x-rapidapi-key': '6bcdf6606bmshd11d9521448bceap1d5b11jsn5a6ca7186c9e',
-            'x-rapidapi-host': 'deezerdevs-deezer.p.rapidapi.com'
-          }
-        });
-        setPlaylist(response.data);
+        const playlistData = await getPlaylist(id); 
+        setPlaylist(playlistData);
       } catch (error) {
         console.error('Erro ao carregar detalhes da playlist:', error);
       }
     };
 
-    if (id) {
-      fetchPlaylistDetails();
-    }
+    fetchPlaylistDetails();
   }, [id]);
 
   if (!playlist) return <p>Carregando...</p>;
