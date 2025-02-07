@@ -1,5 +1,5 @@
 import React from "react";
-import Card from "./TrackCard";
+import TrackCard from "./TrackCard";
 
 interface ListProps {
   items: {
@@ -11,16 +11,16 @@ interface ListProps {
   onItemClick?: (id: number) => void;
 }
 
-const List: React.FC<ListProps> = ({ items, onItemClick }) => {
+const List: React.FC<ListProps> = ({ items}) => {
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
       {items.map((item) => (
-        <Card
+        <TrackCard
           key={item.id}
-          image={item.image}
+          albumCover={item.image}
           title={item.title}
-          subtitle={item.subtitle}
-          onClick={() => onItemClick && onItemClick(item.id)}
+          artist={item.subtitle || ""}
+          previewUrl=""
         />
       ))}
     </div>
