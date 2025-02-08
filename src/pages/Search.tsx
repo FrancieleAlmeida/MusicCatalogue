@@ -25,9 +25,9 @@ const Search = () => {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Digite o nome da música..."
-          className="border p-2 rounded w-full"
+          className="border bg-secundary h-8 p-2 rounded w-full"
         />
-        <button onClick={handleSearch} className="bg-blue-500 text-white p-2 rounded">
+        <button onClick={handleSearch} className="bg-details hover:bg-hover text-white h-8 p-2 rounded flex items-center justify-center">
           Buscar
         </button>
       </div>
