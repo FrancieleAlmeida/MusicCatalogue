@@ -7,45 +7,45 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { getPlaylists } from "@/services/api";
+import { getTracks } from "@/services/api";
 
-export function PlaylistsCarousel() {
-  const [playlists, setPlaylists] = useState<
-    { id: number; title: string; nb_tracks: number; link: string; picture_medium: string }[]
+export function WeeklyHighlightsCarousel() {
+  const [highlights, setHighlights] = useState<
+    { id: number; title: string; link: string; artist: { name: string }; album: { cover_medium: string } }[]
   >([]);
 
   useEffect(() => {
-    async function fetchPlaylists() {
-      const data = await getPlaylists();
+    async function fetchHighlights() {
+      const data = await getTracks();
       if (data) {
-        setPlaylists(data);
+        setHighlights(data);
       }
     }
-    fetchPlaylists();
+    fetchHighlights();
   }, []);
 
   return (
     <Carousel opts={{ align: "start" }} className="w-full max-w-full mx-auto overflow-hidden">
       <CarouselContent className="gap-2">
-        {playlists.map((playlist) => (
-          <CarouselItem key={playlist.id} className="basis-4/5 sm:basis-1/4 md:basis-1/5 lg:basis-1/7">
-            <div className="p-1">
-              <Card className="shadow-md rounded-xl border-none bg-transparent">
+        {highlights.map((track) => (
+          <CarouselItem key={track.id} className="basis-4/5 sm:basis-1/4 md:basis-1/5 lg:basis-1/7">
+            <div className="p-2">
+              <Card className="shadow-md rounded-lg border-none bg-transparent">
                 <CardContent className="flex flex-col items-center p-2 sm:p-4">
                   <img
-                    src={playlist.picture_medium}
-                    alt={playlist.title}
+                    src={track.album.cover_medium}
+                    alt={track.title}
                     className="w-full h-auto object-cover rounded-lg"
                   />
-                  <h2 className="text-sm sm:text-lg font-bold text-center mt-2">{playlist.title}</h2>
-                  <p className="text-xs sm:text-sm text-gray-500">{playlist.nb_tracks} músicas</p>
+                  <h2 className="text-sm sm:text-lg font-bold text-center mt-2">{track.title}</h2>
+                  <p className="text-xs sm:text-sm text-gray-500">{track.artist.name}</p>
                   <a
-                    href={playlist.link}
+                    href={track.link}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="mt-2 text-details font-semibold hover:underline text-xs sm:text-sm"
                   >
-                    Ouvir no Deezer
+                    Ver destaque
                   </a>
                 </CardContent>
               </Card>

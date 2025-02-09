@@ -61,14 +61,12 @@ export function ArtistsCarousel() {
             </CarouselItem>
           ))}
         </CarouselContent>
-        {/* Setas à esquerda */}
-        <div className="absolute inset-y-0 left-10 flex items-center justify-start px-2">
-          <CarouselPrevious className="text-black bg-[#E1DDE4] rounded-full p-2" />
-        </div>
-        {/* Setas à direita */}
-        <div className="absolute inset-y-0 right-10 flex items-center justify-end px-2">
-          <CarouselNext className="text-black bg-[#E1DDE4] rounded-full p-2" />
-        </div>
+        <div className="absolute inset-y-0 left-12 flex items-center justify-start px-2">
+        <CarouselPrevious className="text-black bg-[#E1DDE4] rounded-full p-2" />
+      </div>
+      <div className="absolute inset-y-0 right-12 flex items-center justify-end px-2">
+        <CarouselNext className="text-black bg-[#E1DDE4] rounded-full p-2" />
+      </div>
       </Carousel>
     </div>
   );
