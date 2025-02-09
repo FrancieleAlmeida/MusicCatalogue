@@ -52,7 +52,7 @@ export function ArtistsCarousel() {
                     href={artist.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-1 text-blue-600 text-xs sm:text-sm font-semibold hover:underline"
+                    className="mt-1 text-details text-xs sm:text-sm font-semibold hover:underline"
                   >
                     Ver no Deezer
                   </a>

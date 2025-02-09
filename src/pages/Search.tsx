@@ -16,6 +16,12 @@ const Search = () => {
     }
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      handleSearch();
+    }
+  };
+
   return (
     <div className="p-4">
       <h1 className="text-2xl font-bold mb-4">Buscar Músicas</h1>
@@ -24,10 +30,14 @@ const Search = () => {
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
+          onKeyDown={handleKeyDown}  // Adicionando o evento de tecla
           placeholder="Digite o nome da música..."
-          className="border bg-secundary h-8 p-2 rounded w-full"
+          className="bg-secundary h-8 p-2 rounded w-full focus:outline-none focus:ring-1 focus:ring-details"
         />
-        <button onClick={handleSearch} className="bg-details hover:bg-hover text-white h-8 p-2 rounded flex items-center justify-center">
+        <button
+          onClick={handleSearch}
+          className="bg-details hover:bg-hover text-white h-8 p-2 rounded flex items-center justify-center"
+        >
           Buscar
         </button>
       </div>

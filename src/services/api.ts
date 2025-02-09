@@ -1,8 +1,11 @@
 import axios from "axios";
 
+// Proxy para contornar CORS
+const CORS_PROXY = "https://cors-anywhere.herokuapp.com/";
+
 // Criando instância do Axios com a API do Deezer
 const api = axios.create({
-  baseURL: "https://api.deezer.com",
+  baseURL: `${CORS_PROXY}https://api.deezer.com`,
 });
 
 // 🔍 Buscar faixas (músicas) por nome

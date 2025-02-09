@@ -43,7 +43,7 @@ export function PlaylistsCarousel() {
                     href={playlist.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-3 text-blue-600 font-semibold hover:underline"
+                    className="mt-3 text-details font-semibold hover:underline"
                   >
                     Ouvir no Deezer
                   </a>
