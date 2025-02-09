@@ -29,7 +29,7 @@ export default function Home() {
       <div className="p-3 sm:p-6 rounded-lg shadow-md">
         <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">🎤 Artistas Populares</h2>
         <ArtistsCarousel />
-        <Link to="/artists" className="text-details font-semibold hover:underline mt-1 sm:mt-2 block text-right">
+        <Link to="/artist" className="text-details font-semibold hover:underline mt-1 sm:mt-2 block text-right">
           Ver mais →
         </Link>
       </div>

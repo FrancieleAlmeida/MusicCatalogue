@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";  // Importar o useNavigate
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
@@ -13,6 +14,7 @@ export function ArtistsCarousel() {
   const [artists, setArtists] = useState<
     { id: number; name: string; link: string; picture_medium: string }[]
   >([]);
+  const navigate = useNavigate();  // Usar o hook do React Router
 
   useEffect(() => {
     async function fetchArtists() {
@@ -48,13 +50,16 @@ export function ArtistsCarousel() {
                   <h2 className="text-sm sm:text-base font-semibold text-center mt-2">
                     {artist.name}
                   </h2>
+
                   <a
-                    href={artist.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault();  // Previne o comportamento padrão do link
+                      navigate(`/artist/${artist.id}`);  // Usa o navigate para redirecionar
+                    }}
                     className="mt-1 text-details text-xs sm:text-sm font-semibold hover:underline"
                   >
-                    Ver no Deezer
+                    Ver Detalhes
                   </a>
                 </CardContent>
               </Card>
@@ -62,11 +67,11 @@ export function ArtistsCarousel() {
           ))}
         </CarouselContent>
         <div className="absolute inset-y-0 left-12 flex items-center justify-start px-2">
-        <CarouselPrevious className="text-black bg-[#E1DDE4] rounded-full p-2" />
-      </div>
-      <div className="absolute inset-y-0 right-12 flex items-center justify-end px-2">
-        <CarouselNext className="text-black bg-[#E1DDE4] rounded-full p-2" />
-      </div>
+          <CarouselPrevious className="text-black bg-[#E1DDE4] rounded-full p-2" />
+        </div>
+        <div className="absolute inset-y-0 right-12 flex items-center justify-end px-2">
+          <CarouselNext className="text-black bg-[#E1DDE4] rounded-full p-2" />
+        </div>
       </Carousel>
     </div>
   );

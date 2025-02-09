@@ -11,8 +11,8 @@ const PopularArtists: React.FC = () => {
   }, []);
 
   return (
-    <div>
-      <h2>Artistas Populares</h2>
+    <div className="p-3 sm:p-6">
+      <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Artistas Populares</h2>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {artists.map((artist) => (
           <div key={artist.id} className="p-4 rounded bg-secundary flex flex-col items-center justify-center text-center">
