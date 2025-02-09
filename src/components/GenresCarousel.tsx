@@ -7,46 +7,37 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { getPlaylists } from "@/services/api";
+import { getGenres } from "@/services/api";
 
-export function PlaylistsCarousel() {
-  const [playlists, setPlaylists] = useState<
-    { id: number; title: string; nb_tracks: number; link: string; picture_medium: string }[]
+export function GenresCarousel() {
+  const [genres, setGenres] = useState<
+    { id: number; name: string; picture_medium: string }[]
   >([]);
 
   useEffect(() => {
-    async function fetchPlaylists() {
-      const data = await getPlaylists();
+    async function fetchGenres() {
+      const data = await getGenres();
       if (data) {
-        setPlaylists(data);
+        setGenres(data);
       }
     }
-    fetchPlaylists();
+    fetchGenres();
   }, []);
 
   return (
     <Carousel opts={{ align: "start" }} className="w-full max-w-full mx-auto overflow-hidden">
       <CarouselContent className="gap-2">
-        {playlists.map((playlist) => (
-          <CarouselItem key={playlist.id} className="basis-4/5 sm:basis-1/4 md:basis-1/5 lg:basis-1/7">
+        {genres.map((genre) => (
+          <CarouselItem key={genre.id} className="basis-4/5 sm:basis-1/4 md:basis-1/5 lg:basis-1/7">
             <div className="p-1">
               <Card className="shadow-md rounded-xl border-none bg-transparent">
                 <CardContent className="flex flex-col items-center p-2 sm:p-4">
                   <img
-                    src={playlist.picture_medium}
-                    alt={playlist.title}
+                    src={genre.picture_medium}
+                    alt={genre.name}
                     className="w-full h-auto object-cover rounded-lg"
                   />
-                  <h2 className="text-sm sm:text-lg font-bold text-center mt-2">{playlist.title}</h2>
-                  <p className="text-xs sm:text-sm text-gray-500">{playlist.nb_tracks} músicas</p>
-                  <a
-                    href={playlist.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-2 text-details font-semibold hover:underline text-xs sm:text-sm"
-                  >
-                    Ouvir no Deezer
-                  </a>
+                  <h2 className="text-sm sm:text-lg font-bold text-center mt-2">{genre.name}</h2>
                 </CardContent>
               </Card>
             </div>

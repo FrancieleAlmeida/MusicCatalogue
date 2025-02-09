@@ -10,10 +10,10 @@ const Navbar = () => {
       <ul className="flex gap-4">
         <li>
           <Link to="/search" className="hover:underline">
-            Buscar
+            🔍 Buscar       
           </Link>
         </li>
-        
+
       </ul>
     </nav>
   );
