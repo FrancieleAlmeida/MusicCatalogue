@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Home from "../pages/Home";
+import PopularArtists from "../components/PopularArtists"; 
 import ArtistDetails from "../pages/ArtistDetails";
 import Search from "../pages/Search";
 import Playlist from "../pages/Playlist";
@@ -12,6 +13,7 @@ const AppRoutes = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/artist" element={<PopularArtists />} />
         <Route path="/artist/:id" element={<ArtistDetails />} />
         <Route path="/album/:id" element={<Album />} />
         <Route path="/search" element={<Search />} />

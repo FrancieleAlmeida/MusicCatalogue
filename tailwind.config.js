@@ -8,7 +8,8 @@ export default {
 	  extend: {
 		colors: {
 		  primary: "#0F0D13", // Cor principal do seu projeto
-		  secundary: "#29282D",
+		  secundary: "#1B191F",
+		  lgray: "#29282D",
 		  details: "#A238FF",
 		  hover: "#B560FF",
 		},

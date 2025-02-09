@@ -32,7 +32,7 @@ const Search = () => {
           onChange={(e) => setQuery(e.target.value)}
           onKeyDown={handleKeyDown}  // Adicionando o evento de tecla
           placeholder="Digite o nome da música..."
-          className="bg-secundary h-8 p-2 rounded w-full focus:outline-none focus:ring-1 focus:ring-details"
+          className="bg-lgray h-8 p-2 rounded w-full focus:outline-none focus:ring-1 focus:ring-details"
         />
         <button
           onClick={handleSearch}
