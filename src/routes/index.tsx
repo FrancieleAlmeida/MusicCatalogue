@@ -6,6 +6,7 @@ import ArtistDetails from "../pages/ArtistDetails";
 import Search from "../pages/Search";
 import Playlist from "../pages/Playlist";
 import Album from "@/pages/Album";
+import PopularAlbums from "../components/PopularAlbums"; 
 
 const AppRoutes = () => {
   return (
@@ -15,6 +16,7 @@ const AppRoutes = () => {
         <Route path="/" element={<Home />} />
         <Route path="/artist" element={<PopularArtists />} />
         <Route path="/artist/:id" element={<ArtistDetails />} />
+        <Route path="/albums" element={<PopularAlbums />} />
         <Route path="/album/:id" element={<Album />} />
         <Route path="/search" element={<Search />} />
         <Route path="/playlist/:id" element={<Playlist />} />
