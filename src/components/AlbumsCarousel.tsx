@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
@@ -10,6 +11,7 @@ import {
 import { getAlbums } from "@/services/api";
 
 export function AlbumsCarousel() {
+  const navigate = useNavigate();  // Adicionei essa linha
   const [albums, setAlbums] = useState<
     { id: number; title: string; link: string; cover_medium: string }[]
   >([]);
@@ -39,12 +41,14 @@ export function AlbumsCarousel() {
                   />
                   <h2 className="text-sm sm:text-lg font-bold text-center mt-2">{album.title}</h2>
                   <a
-                    href={album.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-2 text-details font-semibold hover:underline text-xs sm:text-sm"
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      navigate(`/album/${album.id}`);  // Agora o navigate funciona!
+                    }}
+                    className="mt-1 text-details text-xs sm:text-sm font-semibold hover:underline"
                   >
-                    Ouvir no Deezer
+                    Ouvir
                   </a>
                 </CardContent>
               </Card>
