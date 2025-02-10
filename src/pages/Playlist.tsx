@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getPlaylist } from "../services/api";
+import { Footer } from "@/components/Footer";
 
 const Playlist: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -34,7 +35,6 @@ const Playlist: React.FC = () => {
   return (
     <div className="min-h-screen text-white p-6 sm:p-10">
       <div className="max-w-4xl mx-auto">
-        {/* 🎶 Capa e informações da Playlist */}
         <div className="flex flex-col sm:flex-row items-center gap-6">
           <img
             src={playlist.picture_big}
@@ -49,7 +49,6 @@ const Playlist: React.FC = () => {
           </div>
         </div>
 
-        {/* 🎵 Lista de Músicas */}
         <div className="mt-8">
           <h2 className="text-xl font-semibold mb-4">Faixas:</h2>
           <ul className="space-y-4">
@@ -72,6 +71,9 @@ const Playlist: React.FC = () => {
             ))}
           </ul>
         </div>
+      </div>
+      <div className=" sm:space-y-12">
+        <Footer />
       </div>
     </div>
   );

@@ -14,7 +14,7 @@ export function ArtistsCarousel() {
   const [artists, setArtists] = useState<
     { id: number; name: string; link: string; picture_medium: string }[]
   >([]);
-  const navigate = useNavigate();  // Usar o hook do React Router
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchArtists() {
@@ -54,8 +54,8 @@ export function ArtistsCarousel() {
                   <a
                     href="#"
                     onClick={(e) => {
-                      e.preventDefault();  // Previne o comportamento padrão do link
-                      navigate(`/artist/${artist.id}`);  // Usa o navigate para redirecionar
+                      e.preventDefault(); 
+                      navigate(`/artist/${artist.id}`); 
                     }}
                     className="mt-1 text-details text-xs sm:text-sm font-semibold hover:underline"
                   >

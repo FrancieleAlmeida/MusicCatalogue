@@ -3,6 +3,8 @@ import { PlaylistsCarousel } from "@/components/PlaylistsCarousel";
 import { AlbumsCarousel } from "@/components/AlbumsCarousel";
 import { GenresCarousel } from "@/components/GenresCarousel";
 import { WeeklyHighlightsCarousel } from "@/components/WeeklyHighlightsCarousel";
+import { Footer } from "@/components/Footer";
+
 
 import { Link } from "react-router-dom";
 
@@ -45,6 +47,9 @@ export default function Home() {
       <div className="p-3 sm:p-6 rounded-lg shadow-md">
         <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">🎸 Gêneros Musicais</h2>
         <GenresCarousel />
+      </div>
+      <div className=" sm:space-y-12">
+        <Footer />
       </div>
     </div>
   );

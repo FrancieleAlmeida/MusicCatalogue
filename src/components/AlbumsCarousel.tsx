@@ -11,7 +11,7 @@ import {
 import { getAlbums } from "@/services/api";
 
 export function AlbumsCarousel() {
-  const navigate = useNavigate();  // Adicionei essa linha
+  const navigate = useNavigate();
   const [albums, setAlbums] = useState<
     { id: number; title: string; link: string; cover_medium: string }[]
   >([]);
@@ -44,7 +44,7 @@ export function AlbumsCarousel() {
                     href="#"
                     onClick={(e) => {
                       e.preventDefault();
-                      navigate(`/album/${album.id}`);  // Agora o navigate funciona!
+                      navigate(`/album/${album.id}`);
                     }}
                     className="mt-1 text-details text-xs sm:text-sm font-semibold hover:underline"
                   >

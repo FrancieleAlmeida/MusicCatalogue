@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { getArtist, searchTracks } from "../services/api";
 import { Play, Pause } from "lucide-react";
 import PopularArtists from "../components/PopularArtists"; 
+import { Footer } from "@/components/Footer";
 
 const ArtistDetails: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -59,7 +60,6 @@ const ArtistDetails: React.FC = () => {
 
   return (
     <div className="container mx-auto p-6">
-      {/* Seção do Artista */}
       <div className="flex flex-col md:flex-row items-center md:items-start gap-6 bg-artist p-6 rounded-lg shadow-lg bg-secundary">
         <img src={artist.picture_big} alt={artist.name} className="rounded-lg w-48 h-48 object-cover shadow-md" />
         <div>
@@ -76,7 +76,6 @@ const ArtistDetails: React.FC = () => {
         </div>
       </div>
 
-      {/* Seção de Álbuns */}
       <div className="mt-10">
         <h3 className="text-xl font-bold">Principais Álbuns</h3>
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 mt-3 ">
@@ -89,7 +88,6 @@ const ArtistDetails: React.FC = () => {
         </div>
       </div>
 
-      {/* Seção de Músicas Populares */}
       <div className="mt-10">
         <h3 className="text-xl font-bold">Músicas Populares</h3>
         <ul className="mt-3">
@@ -102,6 +100,9 @@ const ArtistDetails: React.FC = () => {
             </li>
           ))}
         </ul>
+      </div>
+      <div className=" sm:space-y-12">
+        <Footer />
       </div>
     </div>
   );

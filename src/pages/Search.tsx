@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { searchTracks } from "../services/api";
 import TrackCard from "../components/TrackCard";
+import { Footer } from "@/components/Footer";
 
 const Search = () => {
   const [query, setQuery] = useState("");
@@ -22,15 +23,16 @@ const Search = () => {
     }
   };
 
-  return (
-    <div className="p-4">
+return (
+  <div className="min-h-screen flex flex-col">
+    <div className="flex-grow p-4">
       <h1 className="text-2xl font-bold mb-4">Buscar Músicas</h1>
       <div className="flex gap-2">
         <input
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          onKeyDown={handleKeyDown}  // Adicionando o evento de tecla
+          onKeyDown={handleKeyDown} 
           placeholder="Digite o nome da música..."
           className="bg-lgray h-8 p-2 rounded w-full focus:outline-none focus:ring-1 focus:ring-details"
         />
@@ -58,7 +60,10 @@ const Search = () => {
         )}
       </div>
     </div>
-  );
+    <Footer />
+  </div>
+);
+
 };
 
 export default Search;

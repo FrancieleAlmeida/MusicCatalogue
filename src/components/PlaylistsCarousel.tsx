@@ -45,7 +45,7 @@ export function PlaylistsCarousel() {
                     href="#"
                     onClick={(e) => {
                       e.preventDefault();
-                      navigate(`/playlist/${playlist.id}`);  // Agora o navigate funciona!
+                      navigate(`/playlist/${playlist.id}`);
                     }}
                     className="mt-1 text-details text-xs sm:text-sm font-semibold hover:underline"
                   >

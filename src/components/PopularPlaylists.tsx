@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getPlaylists } from "../services/api";
 import { useNavigate } from "react-router-dom";
+import { Footer } from "./Footer";
 
 const PopularPlaylists: React.FC = () => {
   const [playlists, setPlaylists] = useState<any[]>([]);
@@ -23,6 +24,9 @@ const PopularPlaylists: React.FC = () => {
             </button>
           </div>
         ))}
+      </div>
+      <div className=" sm:space-y-12">
+        <Footer />
       </div>
     </div>
   );

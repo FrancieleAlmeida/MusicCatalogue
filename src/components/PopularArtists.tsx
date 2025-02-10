@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getArtists } from "../services/api";
 import { useNavigate } from "react-router-dom";
+import { Footer } from "./Footer";
 
 const PopularArtists: React.FC = () => {
   const [artists, setArtists] = useState<any[]>([]);
@@ -23,6 +24,9 @@ const PopularArtists: React.FC = () => {
             </button>
           </div>
         ))}
+      </div>
+      <div className=" sm:space-y-12">
+        <Footer />
       </div>
     </div>
   );
