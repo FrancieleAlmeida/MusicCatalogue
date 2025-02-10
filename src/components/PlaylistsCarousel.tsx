@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
@@ -10,6 +11,7 @@ import {
 import { getPlaylists } from "@/services/api";
 
 export function PlaylistsCarousel() {
+  const navigate = useNavigate();
   const [playlists, setPlaylists] = useState<
     { id: number; title: string; nb_tracks: number; link: string; picture_medium: string }[]
   >([]);
@@ -40,12 +42,14 @@ export function PlaylistsCarousel() {
                   <h2 className="text-sm sm:text-lg font-bold text-center mt-2">{playlist.title}</h2>
                   <p className="text-xs sm:text-sm text-gray-500">{playlist.nb_tracks} músicas</p>
                   <a
-                    href={playlist.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-2 text-details font-semibold hover:underline text-xs sm:text-sm"
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      navigate(`/playlist/${playlist.id}`);  // Agora o navigate funciona!
+                    }}
+                    className="mt-1 text-details text-xs sm:text-sm font-semibold hover:underline"
                   >
-                    Ouvir no Deezer
+                    Ouvir
                   </a>
                 </CardContent>
               </Card>
