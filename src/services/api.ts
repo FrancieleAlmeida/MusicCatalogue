@@ -1,9 +1,7 @@
 import axios from "axios";
 
-const CORS_PROXY = "https://cors-anywhere.herokuapp.com/";
-
 const api = axios.create({
-  baseURL: `${CORS_PROXY}https://api.deezer.com`,
+  baseURL: `https://api.deezer.com`,
 });
 
 export const searchTracks = async (query: string) => {
