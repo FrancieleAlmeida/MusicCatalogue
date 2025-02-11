@@ -18,6 +18,9 @@ export default function Home() {
       <div className="p-3 sm:p-6 rounded-lg shadow-md">
         <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">🔥 Destaques da Semana</h2>
         <WeeklyHighlightsCarousel />
+        <Link to="/weekly-highlights" className="text-details font-semibold hover:underline mt-1 sm:mt-2 block text-right">
+          Ver mais →
+        </Link>
       </div>
 
       <div className="p-3 sm:p-6 rounded-lg shadow-md">

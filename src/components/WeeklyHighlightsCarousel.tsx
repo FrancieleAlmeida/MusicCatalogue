@@ -45,7 +45,7 @@ export function WeeklyHighlightsCarousel() {
                     rel="noopener noreferrer"
                     className="mt-2 text-details font-semibold hover:underline text-xs sm:text-sm"
                   >
-                    Ver destaque
+                    Ouvir destaque
                   </a>
                 </CardContent>
               </Card>
