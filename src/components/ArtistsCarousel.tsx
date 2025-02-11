@@ -42,6 +42,15 @@ export function ArtistsCarousel() {
             >
               <Card className="shadow-lg rounded-xl border-none bg-transparent">
                 <CardContent className="flex flex-col items-center p-4">
+                  <a
+                      href="#"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        navigate(`/artist/${artist.id}`);
+                      }}
+                      className="transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500"
+
+                  >
                   <img
                     src={artist.picture_medium}
                     alt={artist.name}
@@ -50,7 +59,7 @@ export function ArtistsCarousel() {
                   <h2 className="text-sm sm:text-base font-semibold text-center mt-2">
                     {artist.name}
                   </h2>
-
+                  </a>
                   <a
                     href="#"
                     onClick={(e) => {

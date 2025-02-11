@@ -39,9 +39,9 @@ const TrackCard: React.FC<TrackCardProps> = ({ title, artist, albumCover, previe
   };
 
   return (
-    <div className="p-4 rounded-lg shadow-md flex items-center gap-4 bg-secundary">
+    <div className="p-4 rounded-lg shadow-md flex items-center gap-4 bg-secundary transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500">
       <img src={albumCover} alt={title} className="w-16 h-16 rounded" />
-      <div className="flex-1">
+      <div className="flex-1" >
         <p className="font-semibold">{title}</p>
         <p className="text-gray-600">{artist}</p>
       </div>

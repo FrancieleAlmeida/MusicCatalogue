@@ -24,11 +24,9 @@ const ArtistDetails: React.FC = () => {
         const artistData = await getArtist(id);
         setArtist(artistData);
 
-        // Buscar músicas do artista e ordenar por popularidade
         const tracksData = await searchTracks(artistData.name);
         setTracks(tracksData.sort((a: any, b: any) => b.rank - a.rank).slice(0, 5));
 
-        // Buscar álbuns relacionados ao nome do artista
         const albumsData = await searchTracks(artistData.name);
         const uniqueAlbums = Array.from(
           new Set(albumsData.map((track: any) => track.album.id))

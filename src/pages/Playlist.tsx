@@ -46,6 +46,14 @@ const Playlist: React.FC = () => {
             <p className="text-lg text-gray-400 mt-2">
               Criado por: {playlist.creator.name}
             </p>
+            <a
+            href={playlist.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-3 inline-block bg-details hover:bg-hover text-white py-2 px-4 rounded-lg transition"
+          >
+            Perfil no Deezer
+          </a>
           </div>
         </div>
 

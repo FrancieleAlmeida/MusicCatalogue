@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
@@ -10,6 +11,7 @@ import {
 import { getGenres } from "@/services/api";
 
 export function GenresCarousel() {
+  const navigate = useNavigate();
   const [genres, setGenres] = useState<
     { id: number; name: string; picture_medium: string }[]
   >([]);
@@ -32,12 +34,32 @@ export function GenresCarousel() {
             <div className="p-1">
               <Card className="shadow-md rounded-xl border-none bg-transparent">
                 <CardContent className="flex flex-col items-center p-2 sm:p-4">
+                  <a
+                      href="#"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        navigate(`/genre/${genre.id}`);
+                      }}
+                      className="transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500"
+
+                  >
                   <img
                     src={genre.picture_medium}
                     alt={genre.name}
                     className="w-full h-auto object-cover rounded-lg"
                   />
                   <h2 className="text-sm sm:text-lg font-bold text-center mt-2">{genre.name}</h2>
+                  </a>
+                  <a
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      navigate(`/genre/${genre.id}`);
+                    }}
+                    className="mt-1 text-details text-xs sm:text-sm font-semibold hover:underline"
+                  >
+                    Ver Detalhes
+                  </a>
                 </CardContent>
               </Card>
             </div>

@@ -76,6 +76,47 @@ export const getGenres = async () => {
   }
 };
 
+export const getGenreById = async (id: string | number) => {
+  try {
+    const response = await api.get(`/genre/${id}`);
+    return response.data;
+  } catch (error) {
+    console.error("Erro ao buscar o gênero:", error);
+    return null;
+  }
+};
+
+export const getArtistsByGenre = async (genreId: string) => {
+  try {
+    const url = `/genre/${genreId}/artists`;
+    console.log("🔍 URL gerada:", api.defaults.baseURL + url);
+    const response = await api.get(url);
+    return response.data.data || [];
+  } catch (error: any) {
+    console.error("❌ Erro ao buscar artistas do gênero:", error.message);
+    if (error.response) {
+      console.error("📌 Status HTTP:", error.response.status);
+      console.error("📌 Resposta do servidor:", error.response.data);
+    }
+
+    return [];
+  }
+};
+
+export const getTrack = async (id: any) => {
+  try {
+    const response = await api.get(`/track/${id}`);
+    return response.data;
+  } catch (error) {
+    console.error("Erro ao buscar a faixa:", error);
+    return null;
+  }
+};
+
+
+
+
+
 
 
 export const getTracks = async () => {

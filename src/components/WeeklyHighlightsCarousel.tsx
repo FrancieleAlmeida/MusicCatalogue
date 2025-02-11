@@ -31,7 +31,14 @@ export function WeeklyHighlightsCarousel() {
           <CarouselItem key={track.id} className="basis-4/5 sm:basis-1/4 md:basis-1/5 lg:basis-1/7">
             <div className="p-2">
               <Card className="shadow-md rounded-lg border-none bg-transparent">
-                <CardContent className="flex flex-col items-center p-2 sm:p-4">
+                <CardContent className="flex flex-col items-center text-center p-2 sm:p-4">
+                  <a
+                    href={track.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500"
+
+                  >
                   <img
                     src={track.album.cover_medium}
                     alt={track.title}
@@ -39,13 +46,14 @@ export function WeeklyHighlightsCarousel() {
                   />
                   <h2 className="text-sm sm:text-lg font-bold text-center mt-2">{track.title}</h2>
                   <p className="text-xs sm:text-sm text-gray-500">{track.artist.name}</p>
+                  </a>
                   <a
                     href={track.link}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="mt-2 text-details font-semibold hover:underline text-xs sm:text-sm"
                   >
-                    Ver destaque
+                    Ouvir
                   </a>
                 </CardContent>
               </Card>

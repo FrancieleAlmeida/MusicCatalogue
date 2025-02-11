@@ -8,6 +8,9 @@ import Playlist from "../pages/Playlist";
 import PopularPlaylists from "../components/PopularPlaylists"; 
 import Album from "@/pages/Album";
 import PopularAlbums from "../components/PopularAlbums"; 
+import WeeklyHighlights from "@/components/WeeklyHighlights";
+import WeeklyHighlight from "../pages/WeeklyHighlight";
+import GenrePage from "@/pages/Genres";
 
 const AppRoutes = () => {
   return (
@@ -22,6 +25,9 @@ const AppRoutes = () => {
         <Route path="/search" element={<Search />} />
         <Route path="/playlists" element={<PopularPlaylists />} />
         <Route path="/playlist/:id" element={<Playlist />} />
+        <Route path="/WeeklyHighlights" element={<WeeklyHighlights />} />
+        <Route path="/weekly-highlights/:id" element={<WeeklyHighlight />} />
+        <Route path="/genre/:id" element={<GenrePage />} />
       </Routes>
     </Router>
   );

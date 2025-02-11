@@ -33,7 +33,16 @@ export function PlaylistsCarousel() {
           <CarouselItem key={playlist.id} className="basis-4/5 sm:basis-1/4 md:basis-1/5 lg:basis-1/7">
             <div className="p-1">
               <Card className="shadow-md rounded-xl border-none bg-transparent">
-                <CardContent className="flex flex-col items-center p-2 sm:p-4">
+                <CardContent className="flex flex-col items-center text-center p-2 sm:p-4">
+                <a
+                      href="#"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        navigate(`/playlist/${playlist.id}/`);
+                      }}
+                      className="transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500"
+
+                  >
                   <img
                     src={playlist.picture_medium}
                     alt={playlist.title}
@@ -41,6 +50,7 @@ export function PlaylistsCarousel() {
                   />
                   <h2 className="text-sm sm:text-lg font-bold text-center mt-2">{playlist.title}</h2>
                   <p className="text-xs sm:text-sm text-gray-500">{playlist.nb_tracks} músicas</p>
+                  </a>
                   <a
                     href="#"
                     onClick={(e) => {

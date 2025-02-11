@@ -34,12 +34,22 @@ export function AlbumsCarousel() {
             <div className="p-1">
               <Card className="shadow-md rounded-xl border-none bg-transparent">
                 <CardContent className="flex flex-col items-center p-2 sm:p-4">
+                  <a
+                      href="#"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        navigate(`/album/${album.id}`);
+                      }}
+                      className="transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500"
+
+                  >
                   <img
                     src={album.cover_medium}
                     alt={album.title}
                     className="w-full h-auto object-cover rounded-lg"
                   />
                   <h2 className="text-sm sm:text-lg font-bold text-center mt-2">{album.title}</h2>
+                  </a>
                   <a
                     href="#"
                     onClick={(e) => {
