@@ -1,6 +1,12 @@
 import axios from "axios";
 
-const PROXY_URL = "https://music-catalogue.vercel.app/api";
+
+let PROXY_URL = import.meta.env.VITE_API_BASE_URL_PROD;
+
+if (import.meta.env.DEV) {
+  PROXY_URL = import.meta.env.VITE_API_BASE_URL_LOCAL;
+}
+
 const api = axios.create({
   baseURL: PROXY_URL,
   headers: {

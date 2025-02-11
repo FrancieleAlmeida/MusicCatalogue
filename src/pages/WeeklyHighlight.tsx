@@ -67,50 +67,51 @@ const WeeklyHighlights = () => {
   if (loading) return <p className="text-center text-gray-400 mt-10">Carregando...</p>;
   if (!track) return <p className="text-center text-gray-400 mt-10">Música não encontrada.</p>;
 
+
   return (
-    <div className="p-4 space-y-6 sm:space-y-12">
-      <div className="flex flex-col sm:flex-row items-center justify-center gap-6 max-w-4xl mx-auto mt-10">
+    <div className="flex flex-col min-h-screen p-4 space-y-6 sm:space-y-12">
+      <div className="flex flex-col sm:flex-row items-center justify-center gap-6 max-w-4xl mx-auto mt-10 px-4">
         {track.album.cover_big && (
-        <img src={track.album.cover_big} alt={track.album.title} className="rounded-lg w-64 h-64 sm:w-80 sm:h-80 object-cover shadow-lg" />
-      )}
-        <div className="text-center sm:text-left">
-          <h2 className="text-3xl font-bold mt-2">{track.title}</h2>
-          <p className="text-gray-400">Artista: {track.artist.name}</p>
-          <p className="text-gray-400">Álbum: {track.album.title}</p>
+          <img
+            src={track.album.cover_big}
+            alt={track.album.title}
+            className="rounded-lg w-48 h-48 sm:w-80 sm:h-80 max-w-[90%] object-cover shadow-lg"
+          />
+        )}
+        <div className="text-center sm:text-left max-w-xs sm:max-w-md">
+          <h2 className="text-2xl sm:text-3xl font-bold mt-2">{track.title}</h2>
+          <p className="text-gray-400 text-sm sm:text-base">Artista: {track.artist.name}</p>
+          <p className="text-gray-400 text-sm sm:text-base">Álbum: {track.album.title}</p>
           <a
             href={track.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-3 inline-block bg-details hover:bg-hover text-white py-2 px-4 rounded-lg transition"
+            className="mt-3 inline-block max-w-xs w-40 sm:w-auto bg-details hover:bg-hover text-white py-2 px-4 rounded-lg transition text-center mx-auto sm:mx-0"
           >
             Ouvir no Deezer
           </a>
-          <div className="mt-4 flex flex-col items-center sm:items-start">
+          <div className="mt-4 flex flex-col items-center sm:items-start w-full">
             {track.preview ? (
               <button
                 onClick={handlePlayPause}
-                className="bg-details hover:bg-hover text-white py-2 px-4 rounded-lg transition flex items-center justify-center w-40 h-12"
+                className="bg-details hover:bg-hover text-white py-2 px-4 rounded-lg transition flex items-center justify-center w-40 sm:w-40 h-12 mx-auto sm:mx-0"
               >
-                {playingTrack === track.preview ? (
-                  <Pause size={24} />
-                ) : (
-                  <Play size={24} />
-                )}
+                {playingTrack === track.preview ? <Pause size={24} /> : <Play size={24} />}
                 <span className="ml-2">{playingTrack === track.preview ? "Pausar" : "Ouvir Prévia"}</span>
               </button>
-
             ) : (
               <p className="text-gray-400">Prévia não disponível.</p>
             )}
           </div>
         </div>
-
       </div>
-      <div className="absolute bottom-0 w-full">
+      <div  className="w-full mt-auto">
         <Footer />
       </div>
     </div>
   );
+  
+  
 };
 
 export default WeeklyHighlights;
