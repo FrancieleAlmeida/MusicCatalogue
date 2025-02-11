@@ -11,7 +11,7 @@ interface Track {
   duration: number;
   preview: string;
   artist: { id: number; name: string };
-  album: { id: number; title: string; cover_medium: string };
+  album: { id: number; title: string; cover_big: string };
 }
 
 const WeeklyHighlights = () => {
@@ -68,12 +68,17 @@ const WeeklyHighlights = () => {
   if (!track) return <p className="text-center text-gray-400 mt-10">Música não encontrada.</p>;
 
   return (
-    <div className="container mx-auto p-6 mt-5">
-      <div className="flex flex-col sm:flex-row items-center gap-6 max-w-4xl mx-auto">
-        {track.album.cover_medium && (
-          <img src={track.album.cover_medium} alt={track.album.title} className="rounded-lg w-48 h-48 object-cover shadow-md" />
+
+    <div className="p-4 space-y-6 sm:space-y-12">
+      <div className="flex flex-col sm:flex-row items-center justify-center gap-6 max-w-4xl mx-auto mt-10">
+        {track.album.cover_big && (
+          <img 
+            src={track.album.cover_big} 
+            alt={track.album.title} 
+            className="rounded-lg w-64 h-64 sm:w-80 sm:h-80 object-cover shadow-lg"
+          />
         )}
-        <div>
+        <div className="text-center sm:text-left">
           <h2 className="text-3xl font-bold mt-2">{track.title}</h2>
           <p className="text-gray-400">Artista: {track.artist.name}</p>
           <p className="text-gray-400">Álbum: {track.album.title}</p>
@@ -85,27 +90,23 @@ const WeeklyHighlights = () => {
           >
             Ouvir no Deezer
           </a>
-          <div className="mt-2 ">
-        {track.preview ? (
-          <button
-            onClick={handlePlayPause}
-            className="bg-details hover:bg-hover text-white py-2 px-4 rounded-lg transition flex items-center justify-center w-32 h-12"
-          >
-            {playingTrack === track.preview ? (
-              <Pause size={24} />
+          <div className="mt-4 flex flex-col items-center sm:items-start">
+            {track.preview ? (
+              <button
+                onClick={handlePlayPause}
+                className="bg-details hover:bg-hover text-white py-2 px-6 rounded-lg transition flex items-center justify-center w-40 h-12"
+              >
+                {playingTrack === track.preview ? <Pause size={24} /> : <Play size={24} />}
+                <span className="ml-2">{playingTrack === track.preview ? "Pausar" : "Ouvir Prévia"}</span>
+              </button>
             ) : (
-              <Play size={24} />
+              <p className="text-gray-400">Prévia não disponível.</p>
             )}
-            <span className="ml-2">{playingTrack === track.preview ? "Pausar" : "Ouvir Prévia"}</span>
-          </button>
-
-        ) : (
-          <p className="text-gray-400">Prévia não disponível.</p>
-        )}
-      </div>
+          </div>
         </div>
-        
       </div>
+      
+      {/* Footer fixo na parte inferior */}
       <div className="absolute bottom-0 w-full">
         <Footer />
       </div>

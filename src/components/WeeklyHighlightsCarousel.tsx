@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom"; // Adicione essa linha
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
@@ -10,9 +11,14 @@ import {
 import { getTracks } from "@/services/api";
 
 export function WeeklyHighlightsCarousel() {
-  const [highlights, setHighlights] = useState<
-    { id: number; title: string; link: string; artist: { name: string }; album: { cover_medium: string } }[]
-  >([]);
+  const navigate = useNavigate(); // Inicialize o navigate
+  const [highlights, setHighlights] = useState<{
+    id: number;
+    title: string;
+    link: string;
+    artist: { name: string };
+    album: { cover_medium: string };
+  }[]>([]);
 
   useEffect(() => {
     async function fetchHighlights() {
@@ -37,21 +43,23 @@ export function WeeklyHighlightsCarousel() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500"
-
                   >
-                  <img
-                    src={track.album.cover_medium}
-                    alt={track.title}
-                    className="w-full h-auto object-cover rounded-lg"
-                  />
-                  <h2 className="text-sm sm:text-lg font-bold text-center mt-2">{track.title}</h2>
-                  <p className="text-xs sm:text-sm text-gray-500">{track.artist.name}</p>
+                    <img
+                      src={track.album.cover_medium}
+                      alt={track.title}
+                      className="w-full h-auto object-cover rounded-lg"
+                    />
+                    <h2 className="text-sm sm:text-lg font-bold text-center mt-2">{track.title}</h2>
+                    <p className="text-xs sm:text-sm text-gray-500">{track.artist.name}</p>
                   </a>
+
                   <a
-                    href={track.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-2 text-details font-semibold hover:underline text-xs sm:text-sm"
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault(); 
+                      navigate(`/weekly-highlights/${track.id}`); // Navegar para a página de detalhes
+                    }}
+                    className="mt-1 text-details text-xs sm:text-sm font-semibold hover:underline"
                   >
                     Ouvir
                   </a>
