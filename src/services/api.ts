@@ -1,10 +1,8 @@
-
 import axios from "axios";
 
-const PROXY_URL = "https://thingproxy.freeboard.io/fetch/";
-const API_BASE_URL = "https://api.deezer.com";
+const PROXY_URL = "https://music-catalogue.vercel.app/api";
 const api = axios.create({
-  baseURL: `${PROXY_URL}${API_BASE_URL}`,
+  baseURL: PROXY_URL,
   headers: {
     "X-Requested-With": "XMLHttpRequest",
   },
