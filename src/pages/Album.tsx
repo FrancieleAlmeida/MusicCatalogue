@@ -32,7 +32,6 @@ const AlbumPage = () => {
   useEffect(() => {
     const fetchAlbum = async () => {
       if (!id) {
-        console.error("ID do álbum não encontrado.");
         setLoading(false);
         return;
       }

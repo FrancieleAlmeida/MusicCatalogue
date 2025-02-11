@@ -69,7 +69,6 @@ const WeeklyHighlights = () => {
 
   return (
     <div className="container mx-auto p-6 mt-5">
-      {/* Informações da Música */}
       <div className="flex flex-col sm:flex-row items-center gap-6 max-w-4xl mx-auto">
         {track.album.cover_medium && (
           <img src={track.album.cover_medium} alt={track.album.title} className="rounded-lg w-48 h-48 object-cover shadow-md" />
@@ -107,10 +106,6 @@ const WeeklyHighlights = () => {
         </div>
         
       </div>
-
-      {/* Player de Música */}
-
-
       <div className="absolute bottom-0 w-full">
         <Footer />
       </div>

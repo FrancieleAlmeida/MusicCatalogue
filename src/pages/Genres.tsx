@@ -26,7 +26,6 @@ const GenrePage = () => {
   useEffect(() => {
     const fetchGenreData = async () => {
       if (!id) {
-        console.error("❌ ID do gênero não encontrado.");
         setLoading(false);
         return;
       }
@@ -36,10 +35,6 @@ const GenrePage = () => {
           getGenreById(id),
           getArtistsByGenre(id),
         ]);
-
-        console.log("✅ Gênero carregado:", genreData);
-        console.log("✅ Artistas carregados:", artistsData);
-
         setGenre(genreData);
         setArtists(artistsData);
       } catch (error) {

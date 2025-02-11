@@ -33,7 +33,6 @@ export const getPlaylists = async () => {
       item.id && item.title && item.type === "playlist"
     );
 
-    console.log("Playlists recebidas:", playlists);
     return playlists;
   } catch (error) {
     console.error("Erro ao buscar playlists:", error);
@@ -45,7 +44,6 @@ export const getPlaylists = async () => {
 export const getArtists = async () => {
   try {
     const response = await api.get("/chart/0/artists");
-    console.log("Artistas populares:", response.data.data);
     return response.data.data;
   } catch (error) {
     console.error("Erro ao buscar artistas:", error);
@@ -56,7 +54,6 @@ export const getArtists = async () => {
 export const getAlbums = async () => {
   try {
     const response = await api.get("/chart/0/albums");
-    console.log("Albuns populares:", response.data.data);
     return response.data.data;
   } catch (error) {
     console.error("Erro ao buscar album:", error);
@@ -68,7 +65,6 @@ export const getGenres = async () => {
   try {
     const response = await api.get("/genre");
     const genres = response.data.data.filter((genre: { id: number }) => genre.id !== 0);
-    console.log("Gêneros filtrados:", genres);
     return genres;
   } catch (error) {
     console.error("Erro ao buscar gêneros:", error);
@@ -89,39 +85,22 @@ export const getGenreById = async (id: string | number) => {
 export const getArtistsByGenre = async (genreId: string) => {
   try {
     const url = `/genre/${genreId}/artists`;
-    console.log("🔍 URL gerada:", api.defaults.baseURL + url);
     const response = await api.get(url);
     return response.data.data || [];
   } catch (error: any) {
-    console.error("❌ Erro ao buscar artistas do gênero:", error.message);
+    console.error("Erro ao buscar artistas do gênero:", error.message);
     if (error.response) {
-      console.error("📌 Status HTTP:", error.response.status);
-      console.error("📌 Resposta do servidor:", error.response.data);
+      console.error("Status HTTP:", error.response.status);
+      console.error("Resposta do servidor:", error.response.data);
     }
 
     return [];
   }
 };
 
-export const getTrack = async (id: any) => {
-  try {
-    const response = await api.get(`/track/${id}`);
-    return response.data;
-  } catch (error) {
-    console.error("Erro ao buscar a faixa:", error);
-    return null;
-  }
-};
-
-
-
-
-
-
 export const getTracks = async () => {
   try {
     const response = await api.get("/chart/0/tracks");
-    console.log("Faixas populares:", response.data.data);
     return response.data.data;
   } catch (error) {
     console.error("Erro ao buscar faixas:", error);

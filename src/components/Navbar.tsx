@@ -5,7 +5,7 @@ const Navbar = () => {
     <nav className="bg-primary text-white p-4 flex justify-between items-center border-b border-gray-700">
       <Link to="/" className="flex items-center gap-2">
         <img src="/src/assets/deezer.png" alt="Logo Deezer" className="h-6" />
-        <span className="text-xl font-bold">Deezer</span>
+        <span className="text-xl font-bold">MusicApp</span>
       </Link>
       <ul className="flex gap-4">
         <li>
