@@ -45,21 +45,24 @@ O projeto foi implantado no Vercel e pode ser acessado através do seguinte link
 
 ## Estrutura do Projeto
 
-MusicCatalogue/
-│
-├── public/                    # Arquivos públicos
-│
-├── src/                       # Código-fonte da aplicação
-│   ├── assets/                 # Arquivos estáticos, como imagens
-│   ├── components/             # Componentes reutilizáveis
-│   ├── pages/                  # Páginas da aplicação
-│   ├── services/               # Arquivos para realizar requisições à API
-│   ├── routes/                 # Arquivo para configuração de rotas
-│   ├── App.tsx                 # Componente raiz do aplicativo
-│   ├── main.tsx                # Ponto de entrada (renderiza o App)
-│   └── index.html              # Arquivo de configuração inicial (renderiza o app no DOM)
-│
-├── .gitignore                  # Arquivo para ignorar arquivos no Git
-├── package.json                # Arquivo de dependências e scripts
-├── README.md                   # Documentação do projeto
-└── tsconfig.json               # Arquivo de configuração do TypeScript
+```sh
+   MusicCatalogue/
+   │
+   ├── public/                    # Arquivos públicos
+   │
+   ├── src/                       # Código-fonte da aplicação
+   │   ├── assets/                 # Arquivos estáticos, como imagens
+   │   ├── components/             # Componentes reutilizáveis
+   │   ├── pages/                  # Páginas da aplicação
+   │   ├── services/               # Arquivos para realizar requisições à API
+   │   ├── routes/                 # Arquivo para configuração de rotas (React Router)
+   │   ├── App.tsx                 # Componente raiz do aplicativo
+   │   ├── main.tsx                # Ponto de entrada (renderiza o App)
+   │   └── index.html              
+   │
+   ├── .gitignore                  # Arquivo para ignorar arquivos no Git
+   ├── package.json                # Arquivo de dependências e scripts
+   ├── README.md                   # Documentação do projeto
+   └── tsconfig.json               # Arquivo de configuração do TypeScript
+```
+
