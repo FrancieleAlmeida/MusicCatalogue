@@ -1,7 +1,7 @@
 
 import axios from "axios";
 
-const PROXY_URL = "https://cors-anywhere.herokuapp.com/";
+const PROXY_URL = "https://thingproxy.freeboard.io/fetch/";
 const API_BASE_URL = "https://api.deezer.com";
 const api = axios.create({
   baseURL: `${PROXY_URL}${API_BASE_URL}`,
