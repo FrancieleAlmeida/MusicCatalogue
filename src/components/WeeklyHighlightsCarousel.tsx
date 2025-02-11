@@ -36,16 +36,16 @@ export function WeeklyHighlightsCarousel() {
                     href={track.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none "
 
                   >
-                  <img
-                    src={track.album.cover_medium}
-                    alt={track.title}
-                    className="w-full h-auto object-cover rounded-lg"
-                  />
-                  <h2 className="text-sm sm:text-lg font-bold text-center mt-2">{track.title}</h2>
-                  <p className="text-xs sm:text-sm text-gray-500">{track.artist.name}</p>
+                    <img
+                      src={track.album.cover_medium}
+                      alt={track.title}
+                      className="w-full h-auto object-cover rounded-lg"
+                    />
+                    <h2 className="text-sm sm:text-lg font-bold text-center mt-2">{track.title}</h2>
+                    <p className="text-xs sm:text-sm text-gray-500">{track.artist.name}</p>
                   </a>
                   <a
                     href={track.link}

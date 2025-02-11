@@ -48,7 +48,7 @@ export function ArtistsCarousel() {
                         e.preventDefault();
                         navigate(`/artist/${artist.id}`);
                       }}
-                      className="transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none"
 
                   >
                   <img

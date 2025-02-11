@@ -2,6 +2,8 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getGenreById, getArtistsByGenre } from "../services/api";
 import { Footer } from "@/components/Footer";
+import { useNavigate } from "react-router-dom";
+
 
 interface Genre {
   link: string | undefined;
@@ -22,6 +24,8 @@ const GenrePage = () => {
   const [genre, setGenre] = useState<Genre | null>(null);
   const [artists, setArtists] = useState<Artist[]>([]);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
+
 
   useEffect(() => {
     const fetchGenreData = async () => {
@@ -70,14 +74,21 @@ const GenrePage = () => {
             {artists.length > 0 ? (
               artists.map((artist) => (
                 <div key={artist.id}
-                className="text-center cursor-pointer"
-                onClick={() => window.open(`https://www.deezer.com/pt/artist/${artist.id}`, '_blank')}>
+                className="text-center cursor-pointer transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none">
+                  <a
+                      href="#"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        navigate(`/artist/${artist.id}`);
+                      }}
+                  >
                   <img
                     src={artist.picture_medium}
                     alt={artist.name}
                     className="w-24 h-24 sm:w-32 sm:h-32 object-cover rounded-full mx-auto"
                   />
                   <p className="mt-2 text-sm">{artist.name}</p>
+                  </a>
                 </div>
               ))
             ) : (

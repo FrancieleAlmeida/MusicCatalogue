@@ -1,6 +1,6 @@
 # MusicApp
 
-Este projeto é um catálogo de música que utiliza a API oficial da Deezer para exibir informações sobre artistas, álbuns, gêneros musicais e playlists populares. Ao selecionar uma música, o usuário será direcionado para o site da Deezer para ouvi-la.
+Este é um projeto de catálogo de músicas desenvolvido com React, utilizando Vite e TypeScript. A aplicação interage com a API oficial da Deezer para exibir informações sobre artistas, álbuns, gêneros musicais e playlists populares. O usuário pode explorar e ouvir músicas diretamente na Deezer.
 
 ## Tecnologias Utilizadas
 
@@ -12,10 +12,11 @@ Este projeto é um catálogo de música que utiliza a API oficial da Deezer para
 
 ## Funcionalidades
 
-- Explorar playlists, álbuns, artistas e gêneros musicais
-- Buscar músicas diretamente na API da Deezer
-- Exibir destaques semanais
-- Direcionar o usuário para o Deezer ao clicar em uma música
+- Navegação entre diferentes seções: artistas, álbuns, playlists e gêneros musicais
+- Busca de músicas diretamente na API da Deezer
+- Exibição de detalhes de músicas, álbuns e artistas
+- Direcionamento para o site da Deezer ao clicar nas músicas para reprodução
+- Design responsivo e moderno utilizando Tailwind CSS e ShadCN/UI
 
 ## Instalação
 
@@ -40,7 +41,25 @@ Para rodar o projeto localmente:
 
 ## Implantação
 
-Em breve, o projeto será hospedado em um servidor para acesso público.
+O projeto foi implantado no Vercel e pode ser acessado através do seguinte link: https://music-catalogue.vercel.app/
 
+## Estrutura do Projeto
 
-
+MusicCatalogue/
+│
+├── public/                    # Arquivos públicos
+│
+├── src/                       # Código-fonte da aplicação
+│   ├── assets/                 # Arquivos estáticos, como imagens
+│   ├── components/             # Componentes reutilizáveis
+│   ├── pages/                  # Páginas da aplicação
+│   ├── services/               # Arquivos para realizar requisições à API
+│   ├── routes/                 # Arquivo para configuração de rotas
+│   ├── App.tsx                 # Componente raiz do aplicativo
+│   ├── main.tsx                # Ponto de entrada (renderiza o App)
+│   └── index.html              # Arquivo de configuração inicial (renderiza o app no DOM)
+│
+├── .gitignore                  # Arquivo para ignorar arquivos no Git
+├── package.json                # Arquivo de dependências e scripts
+├── README.md                   # Documentação do projeto
+└── tsconfig.json               # Arquivo de configuração do TypeScript

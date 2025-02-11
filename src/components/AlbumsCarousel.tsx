@@ -40,7 +40,7 @@ export function AlbumsCarousel() {
                         e.preventDefault();
                         navigate(`/album/${album.id}`);
                       }}
-                      className="transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none"
 
                   >
                   <img

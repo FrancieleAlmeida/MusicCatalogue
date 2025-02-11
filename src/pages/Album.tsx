@@ -63,7 +63,7 @@ const AlbumPage = () => {
           />
           <div className="text-center sm:text-left">
             <h1 className="text-2xl sm:text-3xl font-bold">{album.title}</h1>
-            <p className="text-lg text-gray-400 mt-2">Artista: {album.artist.name}</p>
+            <p className="text-lg text-gray-400 mt-2">Artista: {album.artist.name} </p>
             <a
             href={album.link}
             target="_blank"
