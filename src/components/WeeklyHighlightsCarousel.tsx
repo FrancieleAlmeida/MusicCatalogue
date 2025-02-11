@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
@@ -10,6 +11,7 @@ import {
 import { getTracks } from "@/services/api";
 
 export function WeeklyHighlightsCarousel() {
+  const navigate = useNavigate();
   const [highlights, setHighlights] = useState<
     { id: number; title: string; link: string; artist: { name: string }; album: { cover_medium: string } }[]
   >([]);
@@ -33,9 +35,11 @@ export function WeeklyHighlightsCarousel() {
               <Card className="shadow-md rounded-lg border-none bg-transparent">
                 <CardContent className="flex flex-col items-center text-center p-2 sm:p-4">
                   <a
-                    href={track.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault(); 
+                      navigate(`/weekly-highlights/${track.id}`);
+                    }}
                     className="transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none "
 
                   >
@@ -48,9 +52,11 @@ export function WeeklyHighlightsCarousel() {
                     <p className="text-xs sm:text-sm text-gray-500">{track.artist.name}</p>
                   </a>
                   <a
-                    href={track.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault(); 
+                      navigate(`/weekly-highlights/${track.id}`);
+                    }}
                     className="mt-2 text-details font-semibold hover:underline text-xs sm:text-sm"
                   >
                     Ouvir
