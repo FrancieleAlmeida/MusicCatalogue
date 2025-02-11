@@ -118,7 +118,6 @@ export const getTrack = async (id: any) => {
 
 
 
-
 export const getTracks = async () => {
   try {
     const response = await api.get("/chart/0/tracks");
@@ -129,5 +128,16 @@ export const getTracks = async () => {
     return null;
   }
 };
+
+export const getTrack = async (id: any) => {
+  try {
+    const response = await api.get(`/track/${id}`);
+    return response.data;
+  } catch (error) {
+    console.error("Erro ao buscar a faixa:", error);
+    return null;
+  }
+};
+
 
 export default api;

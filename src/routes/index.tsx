@@ -1,6 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Home from "../pages/Home";
+import PopularWeeklyHighlights from "../components/PopularWeeklyHighlights"; 
+import WeeklyHighlights from "../pages/WeeklyHighlights";
 import PopularArtists from "../components/PopularArtists"; 
 import ArtistDetails from "../pages/ArtistDetails";
 import Search from "../pages/Search";
@@ -18,6 +20,8 @@ const AppRoutes = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/weekly-highlights" element={<PopularWeeklyHighlights />} />
+        <Route path="/weekly-highlights/:id" element={<WeeklyHighlights />} />
         <Route path="/artist" element={<PopularArtists />} />
         <Route path="/artist/:id" element={<ArtistDetails />} />
         <Route path="/albums" element={<PopularAlbums />} />
